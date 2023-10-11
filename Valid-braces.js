@@ -22,11 +22,11 @@ Examples:
 // Solution
 
 function validBraces(braces){
-  var matches = { '(':')', '{':'}', '[':']' };
-  var stack = [];
-  var currentChar;
+  let matches = { '(':')', '{':'}', '[':']' };
+  let stack = [];
+  let currentChar;
 
-  for (var i=0; i<braces.length; i++) {
+  for (let i=0; i<braces.length; i++) {
     currentChar = braces[i];
 
     if (matches[currentChar]) { // opening braces
@@ -42,3 +42,8 @@ function validBraces(braces){
 }
 
 // or
+
+function validBraces(braces){
+  while(/\(\)|\[\]|\{\}/g.test(braces)){braces = braces.replace(/\(\)|\[\]|\{\}/g,"")}
+  return !braces.length;
+ }
